@@ -47,15 +47,22 @@ function createSidebar() {
   projectTitles.classList.add("title");
   projectTitles.textContent = "Projects";
 
+  const addProjectImage = document.createElement("img");
+  addProjectImage.setAttribute("src", "../src/plus.svg");
+  addProjectImage.classList.add("addprojectimage");
+
   const projects = document.createElement("div");
   projects.classList.add("projects");
 
   projectBar.appendChild(projectImage);
   projectBar.appendChild(projectTitles);
+
+  projects.appendChild(addProjectImage);
   projectBar.appendChild(projects);
 
   sidebar.appendChild(homeBar);
   sidebar.appendChild(projectBar);
+  sidebar.appendChild(projects);
 
   content.appendChild(sidebar);
 }
@@ -63,7 +70,22 @@ function createSidebar() {
 function createTodo() {
   const todoSection = document.createElement("div");
   todoSection.classList.add("todosection");
-  todoSection.textContent = "test"; // remove
+
+  const todoNew = document.createElement("div");
+  todoNew.classList.add("todotask");
+
+  const todoNewImage = document.createElement("img");
+  todoNewImage.setAttribute("src", "../src/plus.svg");
+  todoNewImage.classList.add("addtodoimage");
+
+  const todoNewTask = document.createElement("div");
+  todoNewTask.classList.add("addtodotext");
+  todoNewTask.textContent = "Add task";
+
+  todoNew.appendChild(todoNewImage);
+  todoNew.appendChild(todoNewTask);
+
+  todoSection.appendChild(todoNew);
 
   content.appendChild(todoSection);
 }

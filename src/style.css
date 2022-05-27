@@ -2,6 +2,7 @@
   box-sizing: border-box;
   --headerColor: #5f7470;
   --sidebarColor: #b8bdb5;
+  --sidebarHoverColor: #a1a59f;
   --todoSectionColor: #e0e2db;
   --footerColor: #5f7470;
 }
@@ -19,6 +20,7 @@ body {
   grid-template-columns: 1fr 5fr;
 }
 
+/* Header section */
 .header {
   grid-column: 1 / 3;
   background-color: var(--headerColor);
@@ -38,7 +40,9 @@ body {
 .headertitle {
   font-size: 2rem;
 }
+/*-----------------------------------------------*/
 
+/* Sidebar section */
 .sidebar {
   grid-column: 1 / 2;
   background-color: var(--sidebarColor);
@@ -48,15 +52,23 @@ body {
   padding-top: 3vh;
 
   display: grid;
-  grid-template-rows: max-content;
+  grid-auto-rows: minmax(min-content, max-content);
   gap: 1vh;
 }
 
 .homebar {
   display: grid;
   grid-auto-flow: column;
-  grid-template-columns: max-content;
+  grid-template-columns: 0.25fr max-content;
   gap: 1vw;
+
+  padding: 5% 25% 5% 5%;
+  width: fit-content;
+}
+
+.homebar:hover {
+  background-color: pink;
+  border-radius: 10px;
 }
 
 .homeimage {
@@ -66,14 +78,41 @@ body {
 .projectbar {
   display: grid;
   grid-auto-flow: column;
-  grid-template-columns: max-content;
+  grid-template-columns: 0.25fr max-content;
   gap: 1vw;
+
+  padding: 5% 25% 5% 5%;
+  width: fit-content;
+}
+
+.projectbar:hover {
+  background-color: pink;
+  border-radius: 10px;
 }
 
 .projectimage {
   height: 1.25rem;
 }
 
+.addprojectimage {
+  height: 1.2rem;
+}
+
+.projects {
+  display: grid;
+  grid-auto-rows: minmax(min-content, max-content);
+  padding: 5% 25% 5% 20%;
+  width: fit-content;
+}
+
+.projects:hover {
+  background-color: pink;
+  border-radius: 10px;
+}
+
+/*-----------------------------------------------*/
+
+/* To-Do section */
 .todosection {
   grid-column: 2 / 3;
   background-color: var(--todoSectionColor);
@@ -81,7 +120,9 @@ body {
   padding-left: 3vw;
   padding-top: 3vh;
 }
+/*-----------------------------------------------*/
 
+/* Footer section */
 .footer {
   grid-column: 1 / 3;
   background-color: var(--footerColor);
@@ -91,3 +132,4 @@ body {
   justify-items: center;
   align-items: center;
 }
+/*-----------------------------------------------*/

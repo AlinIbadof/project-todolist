@@ -1,9 +1,13 @@
+let taskNo = 0;
+
 function addTask() {
+  taskNo += 1;
   const todosection = document.querySelector(".todosection");
   const plus = document.querySelector(".addtodo");
 
   const todo = document.createElement("div");
   todo.setAttribute("id", "taskrow");
+  todo.setAttribute("class", `task${taskNo}`);
 
   ///adding form
   const form = document.createElement("form");
@@ -83,9 +87,31 @@ function addTask() {
   cancel.classList.add("taskcancel");
   cancel.textContent = "x";
 
+  submit.addEventListener("click", () => submitTask());
+  cancel.addEventListener("click", () => cancelTask(taskNo));
+
   todo.appendChild(submit);
   todo.appendChild(cancel);
   todosection.insertBefore(todo, plus);
+
+  plus.style.display = "none";
 }
 
-export default addTask;
+function cancelTask(taskNo) {
+  const plus = document.querySelector(".addtodo");
+  plus.style.display = "flex";
+
+  const task = document.querySelector(`.task${taskNo}`);
+
+  const content = document.querySelector(".todosection");
+
+  content.removeChild(task);
+  taskNo -= 1;
+}
+
+function submitTask() {
+  const plus = document.querySelector(".addtodo");
+  plus.style.display = "flex";
+}
+
+export { cancelTask, submitTask, addTask };

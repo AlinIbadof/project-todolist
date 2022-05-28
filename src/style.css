@@ -119,6 +119,15 @@ body {
 
   padding-left: 3vw;
   padding-top: 3vh;
+
+  display: grid;
+  grid-auto-rows: max-content;
+}
+
+.addtodo {
+  display: flex;
+  align-items: center;
+  gap: 1%;
 }
 /*-----------------------------------------------*/
 

@@ -72,14 +72,14 @@ function createTodo() {
   todoSection.classList.add("todosection");
 
   const todoNew = document.createElement("div");
-  todoNew.classList.add("todotask");
+  todoNew.classList.add("addtodo");
 
   const todoNewImage = document.createElement("img");
   todoNewImage.setAttribute("src", "../src/plus.svg");
-  todoNewImage.classList.add("addtodoimage");
+  todoNewImage.setAttribute("id", "addtodoimage");
 
   const todoNewTask = document.createElement("div");
-  todoNewTask.classList.add("addtodotext");
+  todoNewTask.setAttribute("id", "addtodotext");
   todoNewTask.textContent = "Add task";
 
   todoNew.appendChild(todoNewImage);
@@ -105,4 +105,4 @@ function loadPage() {
   createFooter();
 }
 
-export default loadPage();
+export { createHeader, createSidebar, createTodo, createFooter, loadPage };

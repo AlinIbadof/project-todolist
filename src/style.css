@@ -129,6 +129,47 @@ body {
   align-items: center;
   gap: 1%;
 }
+
+/* Adding new task */
+#taskrow {
+  position: relative;
+  width: 70vw;
+  border: 2px solid var(--headerColor);
+  border-radius: 15px;
+  padding: 1%;
+  margin-bottom: 1%;
+
+  display: grid;
+}
+
+#form {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+label {
+  width: 100px;
+  display: inline-block;
+}
+
+input {
+  width: 300px;
+}
+
+.tasksubmit {
+  position: absolute;
+  right: 4%;
+  font-size: 1.4rem;
+  color: green;
+}
+
+.taskcancel {
+  position: absolute;
+  right: 2%;
+  font-size: 1.4rem;
+  color: red;
+}
 /*-----------------------------------------------*/
 
 /* Footer section */

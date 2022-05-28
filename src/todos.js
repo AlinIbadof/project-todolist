@@ -13,7 +13,7 @@ function addTask() {
   title.classList.add("tasktitle");
   const titleLabel = document.createElement("label");
   titleLabel.setAttribute("for", "title");
-  titleLabel.textContent = "Title:";
+  titleLabel.textContent = "Title: ";
   const titleInput = document.createElement("input");
   titleInput.setAttribute("type", "text");
   titleInput.setAttribute("id", "title");
@@ -26,7 +26,7 @@ function addTask() {
   description.classList.add("taskdescription");
   const descriptionLabel = document.createElement("label");
   descriptionLabel.setAttribute("for", "description");
-  descriptionLabel.textContent = "Description:";
+  descriptionLabel.textContent = "Description: ";
   const descriptionInput = document.createElement("input");
   descriptionInput.setAttribute("type", "text");
   descriptionInput.setAttribute("id", "description");
@@ -39,7 +39,7 @@ function addTask() {
   dueDate.classList.add("taskduedate");
   const dueDateLabel = document.createElement("label");
   dueDateLabel.setAttribute("for", "duedate");
-  dueDateLabel.textContent = "Due Date:";
+  dueDateLabel.textContent = "Due Date: ";
   const dueDateInput = document.createElement("input");
   dueDateInput.setAttribute("type", "datetime-local");
   dueDateInput.setAttribute("id", "duedate");
@@ -52,7 +52,7 @@ function addTask() {
   priority.classList.add("taskpriority");
   const priorityLabel = document.createElement("label");
   priorityLabel.setAttribute("for", "priority");
-  priorityLabel.textContent = "Priority";
+  priorityLabel.textContent = "Priority: ";
   //select tag for dropdown menu
   const prioritySelect = document.createElement("select");
   prioritySelect.setAttribute("name", "priority");

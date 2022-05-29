@@ -170,6 +170,31 @@ input {
   font-size: 1.4rem;
   color: red;
 }
+
+#taskrow {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  gap: 5px;
+}
+
+.taskremcontainer {
+  height: 1.4rem;
+  position: absolute;
+  right: 2%;
+}
+
+.tasktitle,
+.taskdescription,
+.taskduedate,
+.taskpriority {
+  display: flex;
+}
+
+.task-left {
+  width: 100px;
+}
+
 /*-----------------------------------------------*/
 
 /* Footer section */

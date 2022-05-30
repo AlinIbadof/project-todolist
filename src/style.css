@@ -4,6 +4,7 @@
   --sidebarColor: #b8bdb5;
   --sidebarHoverColor: #a1a59f;
   --todoSectionColor: #e0e2db;
+  --todoSectionHoverColor: #bdbeb8;
   --footerColor: #5f7470;
 }
 
@@ -67,8 +68,9 @@ body {
 }
 
 .homebar:hover {
-  background-color: pink;
+  background-color: var(--todoSectionColor);
   border-radius: 10px;
+  cursor: pointer;
 }
 
 .homeimage {
@@ -85,10 +87,10 @@ body {
   width: fit-content;
 }
 
-.projectbar:hover {
-  background-color: pink;
+/* .projectbar:hover {
+  background-color: var(--todoSectionColor);
   border-radius: 10px;
-}
+} */
 
 .projectimage {
   height: 1.25rem;
@@ -106,8 +108,9 @@ body {
 }
 
 .projects:hover {
-  background-color: pink;
+  background-color: var(--todoSectionColor);
   border-radius: 10px;
+  cursor: pointer;
 }
 
 /*-----------------------------------------------*/
@@ -127,7 +130,18 @@ body {
 .addtodo {
   display: flex;
   align-items: center;
-  gap: 1%;
+  width: fit-content;
+}
+
+#addtodoimage,
+#addtodotext {
+  padding: 5px;
+}
+
+.addtodo:hover {
+  background-color: var(--sidebarHoverColor);
+  border-radius: 10px;
+  cursor: pointer;
 }
 
 /* Adding new task */

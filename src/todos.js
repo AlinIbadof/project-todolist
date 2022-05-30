@@ -104,7 +104,7 @@ function displayTask() {
   }
 }
 
-// This function finds out the index of the task, and then removes it from the "tasks" array
+// This function finds out the index of the task, and then removes it from the "tasks" array (when delete icon from a task is pressed)
 function cancelTask(e) {
   const plus = document.querySelector(".addtodo");
   plus.style.display = "flex";
@@ -117,10 +117,3 @@ function cancelTask(e) {
 }
 
 export { displayTask, addTask };
-
-//make title required
-//look into local storage
-
-// make task objects inside of an array;
-// when displayfunction is called, run a for loop through array, and display all
-// this will help when creating new projects.

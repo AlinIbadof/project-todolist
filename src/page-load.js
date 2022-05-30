@@ -68,8 +68,12 @@ function createSidebar() {
 }
 
 function createTodo() {
+  const homePage = document.querySelector(".homebar");
+  homePage.style = "border-bottom: 1px solid black;";
+
   const todoSection = document.createElement("div");
   todoSection.classList.add("todosection");
+  todoSection.classList.add("homepage");
 
   const todoNew = document.createElement("div");
   todoNew.classList.add("addtodo");

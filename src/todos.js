@@ -62,7 +62,7 @@ function displayTask() {
 
     const removeContainer = document.createElement("img");
     removeContainer.classList.add("taskremcontainer");
-    removeContainer.setAttribute("src", "src/delete.svg");
+    removeContainer.setAttribute("src", "../src/delete.svg");
     removeContainer.setAttribute("id", "deletetaskimg");
 
     removeContainer.addEventListener("click", () =>

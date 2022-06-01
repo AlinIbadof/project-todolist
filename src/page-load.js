@@ -18,7 +18,7 @@ function createHeader() {
   headerTitle.textContent = "To-Do List";
 
   const headerImage = document.createElement("img");
-  headerImage.setAttribute("src", "src/todolist.svg");
+  headerImage.setAttribute("src", "../src/todolist.svg");
   headerImage.classList.add("headerimage");
 
   header.appendChild(headerImage);
@@ -35,7 +35,7 @@ function createSidebar() {
   homeBar.classList.add("homebar");
 
   const homeImage = document.createElement("img");
-  homeImage.setAttribute("src", "src/home.svg");
+  homeImage.setAttribute("src", "../src/home.svg");
   homeImage.classList.add("homeimage");
 
   const homeText = document.createElement("div");
@@ -99,7 +99,7 @@ function printLS() {
 
       const removeContainer = document.createElement("img");
       removeContainer.classList.add("taskremcontainer");
-      removeContainer.setAttribute("src", "src/delete.svg");
+      removeContainer.setAttribute("src", "../src/delete.svg");
       removeContainer.setAttribute("id", "deletetaskimg");
 
       removeContainer.addEventListener("click", () => {
@@ -131,7 +131,7 @@ function createTodo() {
   todoNew.classList.add("addtodo");
 
   const todoNewImage = document.createElement("img");
-  todoNewImage.setAttribute("src", "src/plus.svg");
+  todoNewImage.setAttribute("src", "../src/plus.svg");
   todoNewImage.setAttribute("id", "addtodoimage");
 
   const todoNewTask = document.createElement("div");

@@ -1,4 +1,4 @@
-#To-Do List Project
+# To-Do List Project
 ***
 This project provides a way of holding information regarding various tasks entered by the users.
 ***
@@ -12,3 +12,4 @@ Ways of improving:
 * Different coloring for tasks based on their priority
 ***
 Live example:
+https://alinibadof.github.io/project-todolist/

@@ -28,12 +28,16 @@ function createTask() {
 function displayTask() {
   createTask();
 
+  //removing all content in todosection
   if (tasks.length != 0) {
     const content = document.querySelector(".todosection");
     const allrows = document.querySelectorAll(".task");
     allrows.forEach((e) => content.removeChild(e));
   }
+  let i = 0;
+  localStorage.clear();
 
+  //adding content in todosection
   for (const task of tasks) {
     const taskRow = document.createElement("div");
     taskRow.setAttribute("id", "taskrow");
@@ -101,6 +105,11 @@ function displayTask() {
     const addTaskRow = document.querySelector(".addtodo");
     const content = document.querySelector(".todosection");
     content.insertBefore(taskRow, addTaskRow);
+
+    //adding the items also to localstorage
+    let task_serialized = JSON.stringify(task);
+    localStorage.setItem(`${i}`, task_serialized);
+    i = i + 1;
   }
 }
 
@@ -111,6 +120,11 @@ function cancelTask(e) {
 
   const parent = e.parentElement;
   tasks.splice(Array.from(parent.parentElement).indexOf(parent) + 1, 1);
+
+  //removes item also from localstorage
+  localStorage.removeItem(
+    `${Array.from(parent.parentElement).indexOf(parent) + 1}`
+  );
 
   const content = document.querySelector(".todosection");
   content.removeChild(parent);

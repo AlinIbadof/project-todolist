@@ -1,4 +1,11 @@
-import { displayTask } from "./todos";
+import { cancelTask } from "./todos";
+
+import {
+  createTodoTitle,
+  createTodoDesc,
+  createTodoDate,
+  createTodoPrio,
+} from "./todosDisplay";
 
 const content = document.querySelector(".content");
 
@@ -69,6 +76,47 @@ function createSidebar() {
   content.appendChild(sidebar);
 }
 
+//Function that checks if there are items in localstorage and adds them to pageLoadTasks array.
+let pageLoadTasks = [];
+function checkLS() {
+  if (localStorage.length != 0) {
+    for (let i = 0; i < localStorage.length; i++) {
+      let task_deserialized = JSON.parse(localStorage.getItem(`${i}`));
+      pageLoadTasks.push(task_deserialized);
+    }
+  }
+}
+
+// Function that display tasks if there are any in LS
+function printLS() {
+  if (pageLoadTasks.length != 0) {
+    for (const task of pageLoadTasks) {
+      const taskRow = document.createElement("div");
+      taskRow.setAttribute("id", "taskrow");
+      taskRow.setAttribute("class", `task`);
+
+      const removeContainer = document.createElement("img");
+      removeContainer.classList.add("taskremcontainer");
+      removeContainer.setAttribute("src", "../src/delete.svg");
+      removeContainer.setAttribute("id", "deletetaskimg");
+
+      removeContainer.addEventListener("click", () =>
+        cancelTask(removeContainer)
+      );
+
+      taskRow.appendChild(createTodoTitle(task));
+      taskRow.appendChild(createTodoDesc(task));
+      taskRow.appendChild(createTodoDate(task));
+      taskRow.appendChild(createTodoPrio(task));
+      taskRow.appendChild(removeContainer);
+
+      const addTaskRow = document.querySelector(".addtodo");
+      const content = document.querySelector(".todosection");
+      content.insertBefore(taskRow, addTaskRow);
+    }
+  }
+}
+
 function createTodo() {
   const homePage = document.querySelector(".homebar");
   homePage.style = "border-bottom: 1px solid black;";
@@ -108,6 +156,8 @@ function loadPage() {
   createHeader();
   createSidebar();
   createTodo();
+  checkLS();
+  printLS();
   createFooter();
 }
 

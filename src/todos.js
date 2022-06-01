@@ -4,7 +4,6 @@ import {
   createTodoDesc,
   createTodoDate,
   createTodoPrio,
-  createTodoRemoveContainer,
 } from "./todosDisplay";
 
 const taskDisplay = (title, description, date, priority) => {
@@ -31,9 +30,6 @@ const checkLS = (function () {
     }
   }
 })();
-
-////IIFE Function that display tasks if there are any in LS
-const printLS = (function () {})();
 
 function createTask() {
   const title = document.getElementById("title").value;
@@ -106,4 +102,4 @@ function cancelTask(e) {
   content.removeChild(parent);
 }
 
-export { displayTask, addTask };
+export { displayTask, addTask, cancelTask };

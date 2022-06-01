@@ -1,3 +1,5 @@
+import { displayTask } from "./todos";
+
 const content = document.querySelector(".content");
 
 function createHeader() {

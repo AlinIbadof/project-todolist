@@ -80,8 +80,10 @@ function createSidebar() {
 let pageLoadTasks = [];
 function checkLS() {
   if (localStorage.length != 0) {
+    let keys = Object.keys(localStorage);
+
     for (let i = 0; i < localStorage.length; i++) {
-      let task_deserialized = JSON.parse(localStorage.getItem(`${i}`));
+      let task_deserialized = JSON.parse(localStorage.getItem(`${keys[i]}`));
       pageLoadTasks.push(task_deserialized);
     }
   }
@@ -90,6 +92,7 @@ function checkLS() {
 // Function that display tasks if there are any in LS
 function printLS() {
   if (pageLoadTasks.length != 0) {
+    let i = 0;
     for (const task of pageLoadTasks) {
       const taskRow = document.createElement("div");
       taskRow.setAttribute("id", "taskrow");
@@ -100,9 +103,9 @@ function printLS() {
       removeContainer.setAttribute("src", "../src/delete.svg");
       removeContainer.setAttribute("id", "deletetaskimg");
 
-      removeContainer.addEventListener("click", () =>
-        cancelTask(removeContainer)
-      );
+      removeContainer.addEventListener("click", () => {
+        cancelTask(removeContainer, task.title);
+      });
 
       taskRow.appendChild(createTodoTitle(task));
       taskRow.appendChild(createTodoDesc(task));
@@ -113,6 +116,7 @@ function printLS() {
       const addTaskRow = document.querySelector(".addtodo");
       const content = document.querySelector(".todosection");
       content.insertBefore(taskRow, addTaskRow);
+      i = i + 1;
     }
   }
 }

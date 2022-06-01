@@ -24,8 +24,10 @@ let tasks = [];
 //IIFE Function that checks if there are items in localstorage and adds them to tasks array.
 const checkLS = (function () {
   if (localStorage.length != 0) {
+    let keys = Object.keys(localStorage);
+
     for (let i = 0; i < localStorage.length; i++) {
-      let task_deserialized = JSON.parse(localStorage.getItem(`${i}`));
+      let task_deserialized = JSON.parse(localStorage.getItem(`${keys[i]}`));
       tasks.push(task_deserialized);
     }
   }
@@ -50,7 +52,6 @@ function displayTask() {
     const allrows = document.querySelectorAll(".task");
     allrows.forEach((e) => content.removeChild(e));
   }
-  let i = 0;
   localStorage.clear();
 
   //adding content in todosection
@@ -65,7 +66,7 @@ function displayTask() {
     removeContainer.setAttribute("id", "deletetaskimg");
 
     removeContainer.addEventListener("click", () =>
-      cancelTask(removeContainer)
+      cancelTask(removeContainer, task.title)
     );
 
     taskRow.appendChild(createTodoTitle(task));
@@ -80,23 +81,20 @@ function displayTask() {
 
     //adding the items also to localstorage
     let task_serialized = JSON.stringify(task);
-    localStorage.setItem(`${i}`, task_serialized);
-    i = i + 1;
+    localStorage.setItem(`${task.title}`, task_serialized);
   }
 }
 
 // This function finds out the index of the task, and then removes it from the "tasks" array (when delete icon from a task is pressed)
-function cancelTask(e) {
+function cancelTask(removeContainer, lsrem) {
   const plus = document.querySelector(".addtodo");
   plus.style.display = "flex";
 
-  const parent = e.parentElement;
+  const parent = removeContainer.parentElement;
   tasks.splice(Array.from(parent.parentElement).indexOf(parent) + 1, 1);
 
   //removes item also from localstorage
-  localStorage.removeItem(
-    `${Array.from(parent.parentElement).indexOf(parent) + 1}`
-  );
+  localStorage.removeItem(lsrem);
 
   const content = document.querySelector(".todosection");
   content.removeChild(parent);

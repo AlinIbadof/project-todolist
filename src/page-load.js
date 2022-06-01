@@ -44,34 +44,34 @@ function createSidebar() {
   homeBar.appendChild(homeImage);
   homeBar.appendChild(homeText);
 
-  //Projects section on sidebar
-  const projectBar = document.createElement("div");
-  projectBar.classList.add("projectbar");
+  // //Projects section on sidebar
+  // const projectBar = document.createElement("div");
+  // projectBar.classList.add("projectbar");
 
-  const projectImage = document.createElement("img");
-  projectImage.setAttribute("src", "../src/list.svg");
-  projectImage.classList.add("projectimage");
+  // const projectImage = document.createElement("img");
+  // projectImage.setAttribute("src", "../src/list.svg");
+  // projectImage.classList.add("projectimage");
 
-  const projectTitles = document.createElement("div");
-  projectTitles.classList.add("title");
-  projectTitles.textContent = "Projects";
+  // const projectTitles = document.createElement("div");
+  // projectTitles.classList.add("title");
+  // projectTitles.textContent = "Projects";
 
-  const addProjectImage = document.createElement("img");
-  addProjectImage.setAttribute("src", "../src/plus.svg");
-  addProjectImage.classList.add("addprojectimage");
+  // const addProjectImage = document.createElement("img");
+  // addProjectImage.setAttribute("src", "../src/plus.svg");
+  // addProjectImage.classList.add("addprojectimage");
 
-  const projects = document.createElement("div");
-  projects.classList.add("projects");
+  // const projects = document.createElement("div");
+  // projects.classList.add("projects");
 
-  projectBar.appendChild(projectImage);
-  projectBar.appendChild(projectTitles);
+  // projectBar.appendChild(projectImage);
+  // projectBar.appendChild(projectTitles);
 
-  projects.appendChild(addProjectImage);
-  projectBar.appendChild(projects);
+  // projects.appendChild(addProjectImage);
+  // projectBar.appendChild(projects);
 
   sidebar.appendChild(homeBar);
-  sidebar.appendChild(projectBar);
-  sidebar.appendChild(projects);
+  // sidebar.appendChild(projectBar);
+  // sidebar.appendChild(projects);
 
   content.appendChild(sidebar);
 }
@@ -92,7 +92,6 @@ function checkLS() {
 // Function that display tasks if there are any in LS
 function printLS() {
   if (pageLoadTasks.length != 0) {
-    let i = 0;
     for (const task of pageLoadTasks) {
       const taskRow = document.createElement("div");
       taskRow.setAttribute("id", "taskrow");
@@ -116,7 +115,6 @@ function printLS() {
       const addTaskRow = document.querySelector(".addtodo");
       const content = document.querySelector(".todosection");
       content.insertBefore(taskRow, addTaskRow);
-      i = i + 1;
     }
   }
 }
@@ -165,4 +163,12 @@ function loadPage() {
   createFooter();
 }
 
-export { createHeader, createSidebar, createTodo, createFooter, loadPage };
+export {
+  createHeader,
+  createSidebar,
+  checkLS,
+  printLS,
+  createTodo,
+  createFooter,
+  loadPage,
+};

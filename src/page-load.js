@@ -18,7 +18,7 @@ function createHeader() {
   headerTitle.textContent = "To-Do List";
 
   const headerImage = document.createElement("img");
-  headerImage.setAttribute("src", "../src/todolist.svg");
+  headerImage.setAttribute("src", "../src/todolist.png");
   headerImage.classList.add("headerimage");
 
   header.appendChild(headerImage);

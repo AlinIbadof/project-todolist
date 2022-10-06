@@ -6,6 +6,7 @@ To improve:
 * Create a Projects section where users can create a new location for inserting tasks.
 * Sort tasks by due date
 * Different coloring for tasks based on their priority
+* Improve CSS
 * ...
 
 Live preview: https://alinibadof.github.io/project-todolist/
